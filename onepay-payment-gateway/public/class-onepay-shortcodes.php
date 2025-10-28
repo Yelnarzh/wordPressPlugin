@@ -40,6 +40,10 @@ class OnePay_Shortcodes {
         ob_start();
         ?>
         <div class="onepay-payment-form">
+            <div class="onepay-security-notice">
+                <p><strong><?php _e('Note:', 'onepay-payment-gateway'); ?></strong> <?php _e('This form creates a payment request and redirects you to OnePay\'s secure hosted payment page for card entry. Your card details are never stored on this website.', 'onepay-payment-gateway'); ?></p>
+            </div>
+            
             <form id="onepay-form" method="post">
                 <?php if (empty($atts['amount'])) : ?>
                     <div class="form-group">
@@ -61,23 +65,6 @@ class OnePay_Shortcodes {
                 <div class="form-group">
                     <label for="onepay-email"><?php _e('Email', 'onepay-payment-gateway'); ?></label>
                     <input type="email" id="onepay-email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="onepay-card-number"><?php _e('Card Number', 'onepay-payment-gateway'); ?></label>
-                    <input type="text" id="onepay-card-number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="onepay-expiry"><?php _e('Expiry Date', 'onepay-payment-gateway'); ?></label>
-                        <input type="text" id="onepay-expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="onepay-cvc"><?php _e('CVC', 'onepay-payment-gateway'); ?></label>
-                        <input type="text" id="onepay-cvc" name="cvc" placeholder="123" maxlength="4" required>
-                    </div>
                 </div>
                 
                 <div class="onepay-errors"></div>
@@ -106,6 +93,10 @@ class OnePay_Shortcodes {
         ob_start();
         ?>
         <div class="onepay-subscription-form">
+            <div class="onepay-security-notice">
+                <p><strong><?php _e('Note:', 'onepay-payment-gateway'); ?></strong> <?php _e('This form creates a subscription and redirects you to OnePay\'s secure hosted page for card entry. Your card details are never stored on this website.', 'onepay-payment-gateway'); ?></p>
+            </div>
+            
             <form id="onepay-subscription-form" method="post">
                 <input type="hidden" name="plan_id" value="<?php echo esc_attr($atts['plan_id']); ?>">
                 <input type="hidden" name="action_type" value="subscription">
@@ -126,23 +117,6 @@ class OnePay_Shortcodes {
                 <div class="form-group">
                     <label for="onepay-sub-email"><?php _e('Email', 'onepay-payment-gateway'); ?></label>
                     <input type="email" id="onepay-sub-email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="onepay-sub-card-number"><?php _e('Card Number', 'onepay-payment-gateway'); ?></label>
-                    <input type="text" id="onepay-sub-card-number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="19" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="onepay-sub-expiry"><?php _e('Expiry Date', 'onepay-payment-gateway'); ?></label>
-                        <input type="text" id="onepay-sub-expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="onepay-sub-cvc"><?php _e('CVC', 'onepay-payment-gateway'); ?></label>
-                        <input type="text" id="onepay-sub-cvc" name="cvc" placeholder="123" maxlength="4" required>
-                    </div>
                 </div>
                 
                 <div class="onepay-errors"></div>

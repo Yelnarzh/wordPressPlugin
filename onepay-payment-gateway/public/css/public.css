@@ -9,6 +9,20 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.onepay-security-notice {
+    background: #e7f3ff;
+    border-left: 4px solid #2196F3;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.onepay-security-notice p {
+    margin: 0;
+    color: #0d47a1;
+    line-height: 1.6;
+}
+
 .onepay-payment-form h3,
 .onepay-subscription-form h3 {
     margin-top: 0;

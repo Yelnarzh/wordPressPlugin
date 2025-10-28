@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnePay Payment Gateway for WordPress</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .installation {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .installation h2 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .installation ol {
+            margin-left: 20px;
+            color: #856404;
+        }
+        
+        .installation li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .files {
+            background: #e7f3ff;
+            border: 1px solid #2196F3;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .files h2 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+        
+        .file-tree {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #333;
+            overflow-x: auto;
+        }
+        
+        .docs-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s;
+        }
+        
+        .docs-link:hover {
+            background: #5568d3;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #666;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d73a49;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="badge">WordPress Plugin</span>
+        <h1>OnePay Payment Gateway</h1>
+        <p class="subtitle">Complete payment solution for WordPress & WooCommerce</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>💳 Payment Processing</h3>
+                <p>Accept one-time payments via credit/debit cards through OnePay API integration</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🔄 Subscriptions</h3>
+                <p>Manage recurring payments with automatic billing and subscription lifecycle</p>
+            </div>
+            
+            <div class="feature">
+                <h3>💰 Refund Management</h3>
+                <p>Process full and partial refunds directly from WordPress admin panel</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🛒 WooCommerce Integration</h3>
+                <p>Seamless checkout integration with WooCommerce for e-commerce stores</p>
+            </div>
+            
+            <div class="feature">
+                <h3>📋 Custom Forms</h3>
+                <p>Add payment forms anywhere using simple shortcodes</p>
+            </div>
+            
+            <div class="feature">
+                <h3>📊 Transaction Tracking</h3>
+                <p>Complete logging and status tracking in WordPress database</p>
+            </div>
+        </div>
+        
+        <div class="installation">
+            <h2>🚀 Quick Installation</h2>
+            <ol>
+                <li>Zip the <code>onepay-payment-gateway</code> folder</li>
+                <li>In WordPress admin, go to <strong>Plugins → Add New → Upload Plugin</strong></li>
+                <li>Upload the ZIP file and click <strong>Install Now</strong></li>
+                <li>Activate the plugin</li>
+                <li>Navigate to <strong>OnePay</strong> menu and configure your API credentials</li>
+                <li>Enable the gateway in <strong>WooCommerce → Settings → Payments</strong></li>
+            </ol>
+        </div>
+        
+        <div class="files">
+            <h2>📁 Plugin Structure</h2>
+            <div class="file-tree">onepay-payment-gateway/
+├── admin/
+│   ├── css/admin.css
+│   ├── js/admin.js
+│   └── class-onepay-admin.php
+├── includes/
+│   ├── class-onepay-main.php
+│   ├── class-onepay-api.php
+│   ├── class-onepay-db.php
+│   ├── class-onepay-logger.php
+│   ├── class-onepay-webhook.php
+│   ├── class-onepay-subscriptions.php
+│   └── class-onepay-wc-gateway.php
+├── public/
+│   ├── css/public.css
+│   ├── js/public.js
+│   └── class-onepay-shortcodes.php
+├── logs/
+├── onepay-payment-gateway.php
+├── readme.txt
+├── README.md
+└── INSTALLATION.md</div>
+        </div>
+        
+        <div>
+            <a href="onepay-payment-gateway/README.md" class="docs-link" download>📖 Download README</a>
+            <a href="onepay-payment-gateway/INSTALLATION.md" class="docs-link" download>📋 Download Installation Guide</a>
+            <a href="https://stoplight.onepayltd.kz" class="docs-link" target="_blank">🔗 OnePay API Docs</a>
+        </div>
+        
+        <div class="footer">
+            <p><strong>OnePay Payment Gateway v1.0.0</strong></p>
+            <p>Developed for WordPress 5.8+ | PHP 7.4+ | WooCommerce 5.0+</p>
+        </div>
+    </div>
+</body>
+</html>

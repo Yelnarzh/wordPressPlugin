@@ -12,7 +12,8 @@ A comprehensive WordPress plugin that integrates the OnePay payment API with Woo
 - **Transaction Logging**: Complete transaction history with detailed status tracking
 - **Webhook Support**: Real-time payment status updates via webhooks
 - **Test Mode**: Sandbox environment for testing before going live
-- **Secure**: API key management with proper security practices
+- **PCI DSS Compliant**: No card data stored on your server - uses OnePay's hosted payment page
+- **Secure**: Webhook signature verification, API key management, and security best practices
 
 ## Installation
 
@@ -45,11 +46,16 @@ A comprehensive WordPress plugin that integrates the OnePay payment API with Woo
 3. Enable/disable test mode as needed
 4. Save settings
 
-### 3. Configure Webhooks
+### 3. Configure Webhooks (REQUIRED)
+
+**IMPORTANT**: Webhook secret is mandatory for security. Without it, webhooks will be rejected.
 
 1. Copy the webhook URL from settings: `https://yoursite.com/wp-json/onepay/v1/webhook`
-2. Add this URL to your OnePay dashboard webhook settings
-3. Set the webhook secret in both OnePay dashboard and plugin settings
+2. Log in to OnePay dashboard and navigate to webhook settings
+3. Add the webhook URL
+4. Generate a strong webhook secret (min 32 characters recommended)
+5. Copy the secret and paste it in WordPress plugin settings (OnePay → Settings → Webhook Secret)
+6. Save settings in both platforms
 
 ### 4. Enable WooCommerce Gateway
 
@@ -182,12 +188,25 @@ The plugin handles the following webhook events:
 - PHP 7.4 or higher
 - WooCommerce 5.0 or higher (for e-commerce features)
 - OnePay merchant account
+- **SSL certificate (REQUIRED for production)** - HTTPS is mandatory for payment processing
+
+## Security
+
+This plugin is designed with PCI DSS compliance in mind:
+
+- **No card data on your server**: Card numbers and CVV are never transmitted to or stored on WordPress
+- **Hosted payment page**: Customers enter card details on OnePay's secure PCI-compliant page
+- **Webhook verification**: All webhooks require HMAC signature verification (mandatory)
+- **Secure API communication**: All API calls use HTTPS with API key authentication
+
+For detailed security information, see [SECURITY.md](SECURITY.md)
 
 ## Support
 
 For support, please contact:
 - Email: support@yourcompany.com
-- Documentation: https://onepayltd.kz/docs
+- OnePay API Documentation: https://stoplight.onepayltd.kz
+- Security Issues: security@yourcompany.com (private disclosure)
 
 ## License
 

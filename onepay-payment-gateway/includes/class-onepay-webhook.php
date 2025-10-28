@@ -90,12 +90,14 @@ class OnePay_Webhook {
         $webhook_secret = get_option('onepay_webhook_secret', '');
         
         if (empty($webhook_secret)) {
-            return true;
+            OnePay_Logger::log('Webhook secret not configured - rejecting webhook', 'error');
+            return false;
         }
         
         $signature = $request->get_header('onepay-signature');
         
         if (empty($signature)) {
+            OnePay_Logger::log('Webhook signature missing', 'error');
             return false;
         }
         
@@ -108,7 +110,7 @@ class OnePay_Webhook {
     private function handle_payment_succeeded($data) {
         $payment_id = $data['id'];
         
-        OnePay_DB::update_transaction($payment_id, array(
+        OnePay_DB::update_transaction_by_payment_id($payment_id, array(
             'status' => 'succeeded',
             'metadata' => $data,
         ));
@@ -129,7 +131,7 @@ class OnePay_Webhook {
     private function handle_payment_failed($data) {
         $payment_id = $data['id'];
         
-        OnePay_DB::update_transaction($payment_id, array(
+        OnePay_DB::update_transaction_by_payment_id($payment_id, array(
             'status' => 'failed',
             'metadata' => $data,
         ));
@@ -149,7 +151,7 @@ class OnePay_Webhook {
     private function handle_payment_canceled($data) {
         $payment_id = $data['id'];
         
-        OnePay_DB::update_transaction($payment_id, array(
+        OnePay_DB::update_transaction_by_payment_id($payment_id, array(
             'status' => 'canceled',
             'metadata' => $data,
         ));

@@ -121,6 +121,32 @@ class OnePay_DB {
         );
     }
     
+    public static function update_transaction_by_payment_id($payment_id, $data) {
+        global $wpdb;
+        
+        $table = $wpdb->prefix . 'onepay_transactions';
+        
+        $update_data = array(
+            'updated_at' => current_time('mysql'),
+        );
+        
+        if (isset($data['status'])) {
+            $update_data['status'] = $data['status'];
+        }
+        
+        if (isset($data['metadata'])) {
+            $update_data['metadata'] = json_encode($data['metadata']);
+        }
+        
+        return $wpdb->update(
+            $table,
+            $update_data,
+            array('payment_id' => $payment_id),
+            array('%s', '%s', '%s'),
+            array('%s')
+        );
+    }
+    
     public static function get_transaction($transaction_id) {
         global $wpdb;
         
@@ -128,6 +154,17 @@ class OnePay_DB {
         
         return $wpdb->get_row(
             $wpdb->prepare("SELECT * FROM $table WHERE transaction_id = %s", $transaction_id),
+            ARRAY_A
+        );
+    }
+    
+    public static function get_transaction_by_payment_id($payment_id) {
+        global $wpdb;
+        
+        $table = $wpdb->prefix . 'onepay_transactions';
+        
+        return $wpdb->get_row(
+            $wpdb->prepare("SELECT * FROM $table WHERE payment_id = %s", $payment_id),
             ARRAY_A
         );
     }
