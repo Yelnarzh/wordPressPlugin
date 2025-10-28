@@ -1,0 +1,114 @@
+.onepay-payment-form,
+.onepay-subscription-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.onepay-payment-form h3,
+.onepay-subscription-form h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.subscription-details {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.subscription-details p {
+    margin: 5px 0;
+}
+
+.onepay-submit-button {
+    width: 100%;
+    padding: 15px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.onepay-submit-button:hover {
+    background: #45a049;
+}
+
+.onepay-submit-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.onepay-errors {
+    color: #dc3232;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #ffe6e6;
+    border: 1px solid #ffcccc;
+    border-radius: 4px;
+    display: none;
+}
+
+.onepay-errors.show {
+    display: block;
+}
+
+.onepay-success {
+    color: #46b450;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #e6ffe6;
+    border: 1px solid #ccffcc;
+    border-radius: 4px;
+    display: none;
+}
+
+.onepay-success.show {
+    display: block;
+}

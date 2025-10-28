@@ -1,0 +1,51 @@
+.onepay-settings-page {
+    max-width: 800px;
+}
+
+.onepay-settings-page h1 {
+    margin-bottom: 20px;
+}
+
+.onepay-settings-page .form-table th {
+    width: 200px;
+}
+
+.onepay-settings-page code {
+    background: #f0f0f1;
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.wp-list-table .status-succeeded {
+    color: #46b450;
+    font-weight: bold;
+}
+
+.wp-list-table .status-failed {
+    color: #dc3232;
+    font-weight: bold;
+}
+
+.wp-list-table .status-pending {
+    color: #ffb900;
+    font-weight: bold;
+}
+
+.wp-list-table .status-canceled {
+    color: #888;
+    font-weight: bold;
+}
+
+.wp-list-table .status-active {
+    color: #46b450;
+    font-weight: bold;
+}
+
+.cancel-subscription {
+    color: #dc3232;
+}
+
+.cancel-subscription:hover {
+    color: #a00;
+}
