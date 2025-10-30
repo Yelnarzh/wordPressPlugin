@@ -1,4 +1,4 @@
-modules = ["php-8.3", "python-3.11"]
+modules = ["php-8.3", "python-3.11", "php-8.2"]
 [agent]
 expertMode = true
 
@@ -33,3 +33,7 @@ externalPort = 80
 [[ports]]
 localPort = 33641
 externalPort = 3000
+
+[[ports]]
+localPort = 46277
+externalPort = 3001
