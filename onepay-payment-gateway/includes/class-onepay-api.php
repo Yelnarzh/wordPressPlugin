@@ -16,8 +16,8 @@ class OnePay_API {
         $this->api_secret = get_option('onepay_api_secret', '');
         $this->test_mode = get_option('onepay_test_mode', 'yes') === 'yes';
         $this->api_url = $this->test_mode 
-            ? 'https://sandbox.onepayltd.kz/api' 
-            : 'https://api.onepayltd.kz/api';
+            ? 'https://api.onepayltd.kz/test' 
+            : 'https://api.onepayltd.kz';
     }
     
     private function get_headers() {
