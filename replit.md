@@ -185,6 +185,15 @@ onepay-payment-gateway/
 
 ## Recent Changes
 
+- 2025-10-31: Added WooCommerce HPOS compatibility
+  - Declared compatibility with High-Performance Order Storage
+  - Plugin now works seamlessly with WooCommerce's modern order tables
+  - No compatibility warnings in WooCommerce settings
+
+- 2025-10-31: Fixed database schema error
+  - Renamed 'interval' column to 'billing_interval' to avoid MySQL reserved keyword
+  - Resolved SQL syntax error in wp_onepay_subscriptions table creation
+
 - 2025-10-31: Fixed activation error
   - Resolved "Class 'OnePay_DB' not found" fatal error during plugin activation
   - Added required class file loading in activate() method
