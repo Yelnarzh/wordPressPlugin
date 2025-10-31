@@ -38,9 +38,7 @@ class OnePay_Main {
         add_action('init', array($this, 'load_textdomain'));
         add_filter('plugin_action_links_' . ONEPAY_PLUGIN_BASENAME, array($this, 'plugin_action_links'));
         
-        if (class_exists('WooCommerce')) {
-            add_filter('woocommerce_payment_gateways', array($this, 'add_gateway'));
-        }
+        add_filter('woocommerce_payment_gateways', array($this, 'add_gateway'));
     }
     
     public function load_textdomain() {
@@ -54,6 +52,14 @@ class OnePay_Main {
     }
     
     public function add_gateway($gateways) {
+        if (!class_exists('WooCommerce')) {
+            return $gateways;
+        }
+        
+        if (!class_exists('OnePay_WC_Gateway')) {
+            require_once ONEPAY_PLUGIN_DIR . 'includes/class-onepay-wc-gateway.php';
+        }
+        
         $gateways[] = 'OnePay_WC_Gateway';
         return $gateways;
     }
