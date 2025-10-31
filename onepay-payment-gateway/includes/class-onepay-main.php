@@ -59,6 +59,7 @@ class OnePay_Main {
     }
     
     public static function activate() {
+        require_once ONEPAY_PLUGIN_DIR . 'includes/class-onepay-db.php';
         OnePay_DB::create_tables();
         flush_rewrite_rules();
     }
