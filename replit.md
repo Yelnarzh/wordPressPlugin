@@ -185,6 +185,11 @@ onepay-payment-gateway/
 
 ## Recent Changes
 
+- 2025-10-31: Fixed activation error
+  - Resolved "Class 'OnePay_DB' not found" fatal error during plugin activation
+  - Added required class file loading in activate() method
+  - Plugin now activates successfully in WordPress
+
 - 2025-10-28: Initial plugin development completed
   - Core plugin structure implemented
   - OnePay API integration
